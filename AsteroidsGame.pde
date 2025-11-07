@@ -104,5 +104,5 @@ public void timer() {
   textAlign(RIGHT, CENTER);
   textSize(40);
   fill(255);
-  text(seconds-relTime, width-30, 30);
+  text(seconds-relTime, width-20, 30);
 }
