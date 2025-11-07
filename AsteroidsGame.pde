@@ -30,8 +30,8 @@ public void draw()
       asteroids.get(i).show();
     }
     for(int i = 0; i < asteroids.size(); i++) {  
-      float dist = dist((float) ship.myCenterX, (float) ship.myCenterY, (float) asteroids.get(i).myCenterX, (float) asteroids.get(i).myCenterY);
-      if(dist < 30) {
+      float aDist = dist((float) ship.myCenterX, (float) ship.myCenterY, (float) asteroids.get(i).myCenterX, (float) asteroids.get(i).myCenterY);
+      if(aDist < 30) {
         asteroids.remove(i);
         ship.gotHit();
         break;
@@ -107,6 +107,6 @@ public void timer() {
   text(seconds-relTime, width-50, 30);
 }
 
-public float dist(float x1, float y1, float x2, float y2) {
+/*public float dist(float x1, float y1, float x2, float y2) {
   return((float) (Math.sqrt((x1-x2)(x1-x2)+(y1-y2)(y1-y2))));
-}
+}*/
