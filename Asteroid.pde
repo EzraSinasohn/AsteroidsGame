@@ -43,17 +43,3 @@ public void asteroidCount() {
     fill(255);
     text(asteroids.size(), 31, 29);
 }
-
-public void mousePressed() {
-  if(!(asteroids.size() == 0)) {
-    keys[4] = true;
-  } else {
-    for(int i = 0; i < numAsteroids; i++) {asteroids.add(new Asteroid());}
-    ship.myCenterX = Math.random()*width;
-    ship.myCenterY = Math.random()*height;
-    ship.setHealth(100);
-    relTime = millis()/1000;
-    //camera(width/2.0, height/2.0, (height/2.0) / tan(PI*30.0 / 180.0), width/2.0, height/2.0, 0, 0, 1, 0);
-    //perspective(PI/3.0, width/height, ((height/2.0) / tan(PI*60.0/360.0))/10.0, ((height/2.0) / tan(PI*60.0/360.0))*10.0);
-  }
-}
