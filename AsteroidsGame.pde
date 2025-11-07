@@ -31,7 +31,7 @@ public void draw()
     }
     for(int i = 0; i < asteroids.size(); i++) {  
       float aDist = dist((float) ship.myCenterX, (float) ship.myCenterY, (float) asteroids.get(i).myCenterX, (float) asteroids.get(i).myCenterY);
-      if(aDist < 30 && seconds-relTime > 1) {
+      if(aDist < 30 && seconds-relTime > 3) {
         asteroids.remove(i);
         ship.gotHit();
         break;
