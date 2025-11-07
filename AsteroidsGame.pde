@@ -95,6 +95,7 @@ public void draw()
     if(ship.getHealth() == 0) {
       for(int i = 0; i < asteroids.size(); i++) {asteroids.remove(i);}
     }
+    bubble();
     asteroidCount();
     timer();
 }
@@ -105,4 +106,10 @@ public void timer() {
   textSize(40);
   fill(255);
   text(seconds-relTime, width-20, 30);
+}
+
+public void bubble() {
+  stroke(0, 0, 255);
+  fill(0, 120, 255, 30);
+  if(seconds-relTime < 3) {ellipse(ship.getX(), ship.getY(), 20, 20);}
 }
