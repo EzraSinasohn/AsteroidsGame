@@ -3,12 +3,12 @@ Spaceship ship = new Spaceship();
 ArrayList <Asteroid> asteroids = new ArrayList<Asteroid>();
 ArrayList <Bullet> shots = new ArrayList<Bullet>();
 ArrayList <Fragment> rubble = new ArrayList<Fragment>();
-int cooldown, numAsteroids = 50, relTime = 0, seconds;
+int cooldown, numAsteroids = 30, relTime = 0, seconds;
 float fov, camX = width/2.0, camY = height/2.0;
 public void setup() 
 {
   //fullScreen(P3D);
-  size(1500, 800);
+  size(1200, 800);
   background(0);
   noCursor();
   for(int i = 0; i < stars.length; i++) {stars[i] = new Star();}
@@ -31,7 +31,7 @@ public void draw()
     }
     for(int i = 0; i < asteroids.size(); i++) {  
       float aDist = dist((float) ship.myCenterX, (float) ship.myCenterY, (float) asteroids.get(i).myCenterX, (float) asteroids.get(i).myCenterY);
-      if(aDist < 30) {
+      if(aDist < 30 && seconds-relTime > 1) {
         asteroids.remove(i);
         ship.gotHit();
         break;
