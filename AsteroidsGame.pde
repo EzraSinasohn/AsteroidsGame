@@ -1,4 +1,4 @@
-Star[] stars = new Star[5000];
+Star[] stars = new Star[500];
 Spaceship ship = new Spaceship();
 ArrayList <Asteroid> asteroids = new ArrayList<Asteroid>();
 ArrayList <Bullet> shots = new ArrayList<Bullet>();
