@@ -39,7 +39,8 @@ public void asteroidCount() {
     }
     endShape(CLOSE);
     popMatrix();
-    textAlign(CENTER, CENTER);
     fill(255);
+    textAlign(CENTER, CENTER);
+    textSize(20);
     text(asteroids.size(), 31, 29);
 }
