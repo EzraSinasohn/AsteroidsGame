@@ -8,7 +8,7 @@ float fov, camX = width/2.0, camY = height/2.0;
 public void setup() 
 {
   //fullScreen(P3D);
-  size(1500, 1000, P3D);
+  size(1500, 1000);
   background(0);
   noCursor();
   for(int i = 0; i < stars.length; i++) {stars[i] = new Star();}
