@@ -110,6 +110,6 @@ public void timer() {
 
 public void bubble() {
   stroke(0, 0, 255);
-  fill(0, 120, 255, 50);
+  fill(0, 200, 255, 90);
   if(seconds-relTime < 3) {ellipse(ship.getX(), ship.getY(), 50, 50);}
 }
