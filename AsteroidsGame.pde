@@ -101,7 +101,7 @@ public void draw()
 
 public void timer() {
   if(asteroids.size() > 0) {seconds = millis()/1000;}
-  textAlign(CENTER, CENTER);
+  textAlign(RIGHT, CENTER);
   textSize(40);
   fill(255);
   text(seconds-relTime, width-50, 30);
