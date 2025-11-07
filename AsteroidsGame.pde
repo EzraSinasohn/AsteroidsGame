@@ -104,7 +104,7 @@ public void timer() {
   textAlign(RIGHT, CENTER);
   textSize(40);
   fill(255);
-  text(seconds-relTime, width-50, 30);
+  text(seconds-relTime, width-30, 30);
 }
 
 /*public float dist(float x1, float y1, float x2, float y2) {
