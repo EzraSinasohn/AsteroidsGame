@@ -4,8 +4,8 @@ class Star //note that this class does NOT extend Floater
   private float op;
   private boolean up;
   public Star() {
-    myX = (int) (Math.random()*width*10);
-    myY = (int) (Math.random()*height*10);
+    myX = (int) (Math.random()*width);
+    myY = (int) (Math.random()*height);
     op = (float) (Math.random()*200)+55;
     up = false;
   }
