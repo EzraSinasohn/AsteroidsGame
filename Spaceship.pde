@@ -39,7 +39,6 @@ class Spaceship extends Floater
   
   void healthBar() {
     pushMatrix();
-    translate(0, 0, 1);
     stroke(0);
     fill(255, 0, 0);
     rect(20, height-20, (health*2), 20);
@@ -97,7 +96,7 @@ public void thruster() {
     pushMatrix();
     stroke(255, 200, 0);
     fill(255, 100, 0);
-    translate((float) ship.myCenterX, (float) ship.myCenterY, -1);
+    translate((float) ship.myCenterX, (float) ship.myCenterY);
     rotate((float) (ship.myPointDirection*PI/180.0));
     triangle(0, 5, 0, -5, -20, 0);
     popMatrix();
@@ -105,7 +104,7 @@ public void thruster() {
     pushMatrix();
     stroke(255, 200, 0);
     fill(255, 100, 0);
-    translate((float) ship.myCenterX, (float) ship.myCenterY, -1);
+    translate((float) ship.myCenterX, (float) ship.myCenterY);
     rotate((float) (ship.myPointDirection*PI/180.0));
     triangle(0, 10, 0, 5, -15, 10);
     stroke(255, 0, 0);
@@ -116,7 +115,7 @@ public void thruster() {
     pushMatrix();
     stroke(255, 200, 0);
     fill(255, 100, 0);
-    translate((float) ship.myCenterX, (float) ship.myCenterY, -1);
+    translate((float) ship.myCenterX, (float) ship.myCenterY);
     rotate((float) (ship.myPointDirection*PI/180.0));
     triangle(0, -10, 0, -5, -15, -10);
     stroke(255, 0, 0);
@@ -127,7 +126,7 @@ public void thruster() {
     pushMatrix();
     stroke(255, 200, 0);
     fill(255, 100, 0);
-    translate((float) ship.myCenterX, (float) ship.myCenterY, -1);
+    translate((float) ship.myCenterX, (float) ship.myCenterY);
     rotate((float) (ship.myPointDirection*PI/180.0));
     triangle(0, 10, 0, 5, 15, 10);
     stroke(255, 0, 0);
