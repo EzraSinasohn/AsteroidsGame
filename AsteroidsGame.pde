@@ -7,8 +7,8 @@ int cooldown, numAsteroids = 50, relTime = 0, seconds;
 float fov, camX = width/2.0, camY = height/2.0;
 public void setup() 
 {
-  fullScreen(P3D);
-  //size(1500, 1000, P3D);
+  //fullScreen(P3D);
+  size(1500, 1000, P3D);
   background(0);
   noCursor();
   for(int i = 0; i < stars.length; i++) {stars[i] = new Star();}
