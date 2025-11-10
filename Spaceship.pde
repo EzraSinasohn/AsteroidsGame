@@ -24,12 +24,10 @@ class Spaceship extends Floater
         if(rot < 5) {rot += 0.75;}
       }
     if(keys[3]) {accelerate(-0.5);}
-    else {
-      if(!(keys[1] || keys[2])) {rot *= 0.95;}
-      if(!keys[0]) {
-        myXspeed *= 0.98;
-        myYspeed *= 0.98;
-      }
+    if(!(keys[1] || keys[2])) {rot *= 0.95;}
+    if(!keys[0]) {
+      myXspeed *= 0.98;
+      myYspeed *= 0.98;
     }
     turn(rot);
     if(myXspeed > 10) {myXspeed = 10;} else if(myXspeed < -10) {myXspeed = -10;}
@@ -88,6 +86,8 @@ public void keyReleased() {
     keys[2] = false;
   } if(key == ' ') {
     keys[4] = false;
+  } if(key == 'r') {
+    reset();
   }
 }
 
@@ -146,13 +146,7 @@ public void mousePressed() {
   if(!(asteroids.size() == 0)) {
     keys[4] = true;
   } else {
-    for(int i = 0; i < numAsteroids; i++) {asteroids.add(new Asteroid());}
-    ship.myCenterX = Math.random()*width;
-    ship.myCenterY = Math.random()*height;
-    ship.setHealth(100);
-    relTime = millis()/1000;
-    //camera(width/2.0, height/2.0, (height/2.0) / tan(PI*30.0 / 180.0), width/2.0, height/2.0, 0, 0, 1, 0);
-    //perspective(PI/3.0, width/height, ((height/2.0) / tan(PI*60.0/360.0))/10.0, ((height/2.0) / tan(PI*60.0/360.0))*10.0);
+    reset();
   }
 }
 
