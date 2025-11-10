@@ -113,3 +113,13 @@ public void bubble() {
   fill(0, 200, 255, 90);
   if(seconds-relTime < 3) {ellipse(ship.getX(), ship.getY(), 50, 50);}
 }
+
+public void reset() {
+  for(int i = asteroids.size()-1; i >= 0; i--) {asteroids.remove(i);}
+  for(int i = 0; i < numAsteroids; i++) {asteroids.add(new Asteroid());}
+  ship.myCenterX = Math.random()*width;
+  ship.myCenterY = Math.random()*height;
+  ship.setHealth(100);
+  ship.myPointDirection = Math.random()*360;
+  relTime = millis()/1000;  
+}
