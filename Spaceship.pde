@@ -54,7 +54,10 @@ class Spaceship extends Floater
   public double getPointDirection() {return myPointDirection;}
   public double getHealth() {return health;}
   public void setHealth(int hp) {health = hp;}
-  public void gotHit() {health -= 20;}
+  public void gotHit(int dmg) {
+    health -= dmg;
+    dmgless = false;
+  }
   
 }
 
@@ -63,12 +66,16 @@ public void keyPressed() {
   if(!(asteroids.size() == 0)) {
     if(keyCode == UP) {
       keys[0] = true;
+      moveless = false;
     } else if(keyCode == DOWN) {
       keys[3] = true;
+      moveless = false;
     } if(keyCode == LEFT) {
       keys[1] = true;
+      turnless = false;
     } else if(keyCode == RIGHT) {
       keys[2] = true;
+      turnless = false;
     } if(key == ' ') {
       keys[4] = true;
     }
@@ -153,5 +160,4 @@ public void mousePressed() {
 public void mouseReleased() {
   keys[4] = false;
 }
-
 
