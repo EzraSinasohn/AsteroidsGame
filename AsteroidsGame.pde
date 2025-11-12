@@ -12,7 +12,7 @@ boolean dmgless = true, moveless = true, turnless = true, fast = true;
 public void setup() 
 {
   //fullScreen(P3D);
-  size(1200, 800);
+  size(1200, 700);
   background(0);
   noCursor();
   for(int i = 0; i < stars.length; i++) {stars[i] = new Star();}
