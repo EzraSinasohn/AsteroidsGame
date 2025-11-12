@@ -64,16 +64,16 @@ class Spaceship extends Floater
 
 public void keyPressed() {
   if(!(asteroids.size() == 0)) {
-    if(keyCode == UP) {
+    if(keyCode == UP || key == 'w') {
       keys[0] = true;
       moveless = false;
-    } else if(keyCode == DOWN) {
+    } else if(keyCode == DOWN || key == 's') {
       keys[3] = true;
       moveless = false;
-    } if(keyCode == LEFT) {
+    } if(keyCode == LEFT || key == 'a') {
       keys[1] = true;
       turnless = false;
-    } else if(keyCode == RIGHT) {
+    } else if(keyCode == RIGHT || key == 'd') {
       keys[2] = true;
       turnless = false;
     } if(key == ' ') {
@@ -83,17 +83,17 @@ public void keyPressed() {
 }
 
 public void keyReleased() {
-  if(keyCode == UP) {
+  if(keyCode == UP || key == 'w') {
     keys[0] = false;
-  } else if(keyCode == DOWN) {
+  } else if(keyCode == DOWN || key == 's') {
     keys[3] = false;
-  } if(keyCode == LEFT) {
+  } if(keyCode == LEFT || key == 'a') {
     keys[1] = false;
-  } else if(keyCode == RIGHT) {
+  } else if(keyCode == RIGHT || key == 'd') {
     keys[2] = false;
   } if(key == ' ') {
     keys[4] = false;
-  } if(key == 'r') {
+  } if(key == 'r' || key == 'h') {
     reset();
   }
 }
