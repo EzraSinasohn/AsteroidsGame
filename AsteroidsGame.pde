@@ -4,7 +4,11 @@ ArrayList <Asteroid> asteroids = new ArrayList<Asteroid>();
 ArrayList <Bullet> shots = new ArrayList<Bullet>();
 ArrayList <Fragment> rubble = new ArrayList<Fragment>();
 int cooldown, numAsteroids = 30, relTime = 0, seconds;
-float fov, camX = width/2.0, camY = height/2.0;
+Badge noDamage = new Badge(50, "INVINCIBLE", 255, 0, 0);
+Badge noMove = new Badge(130, "LAZY", 0, 100, 255);
+Badge noTurn = new Badge(210, "FOCUSED", 100, 255, 0);
+Badge speedrun = new Badge(290, "SPEEDRUNNER", 255, 200, 0);
+boolean dmgless = true, moveless = true, turnless = true, fast = true;
 public void setup() 
 {
   //fullScreen(P3D);
@@ -33,7 +37,7 @@ public void draw()
       float aDist = dist((float) ship.myCenterX, (float) ship.myCenterY, (float) asteroids.get(i).myCenterX, (float) asteroids.get(i).myCenterY);
       if(aDist < 30 && seconds-relTime > 3) {
         asteroids.remove(i);
-        ship.gotHit();
+        ship.gotHit(20);
         break;
       }
     }
@@ -69,6 +73,10 @@ public void draw()
         textSize(100);
         fill(0, 255, 100);
         text("You Win!", width/2, height/2);
+        if(dmgless == true) {noDamage.setActive(dmgless);}
+        if(moveless == true) {noMove.setActive(moveless);}
+        if(turnless == true) {noTurn.setActive(turnless);}
+        if(fast == true) {speedrun.setActive(fast);}
       } else {
         textAlign(CENTER, CENTER);
         textSize(100);
@@ -91,13 +99,26 @@ public void draw()
         break;
       }
     }
+    for(int i = 0; i < rubble.size(); i++) {  
+      float fDist = dist((float) ship.myCenterX, (float) ship.myCenterY, (float) rubble.get(i).myCenterX, (float) rubble.get(i).myCenterY);
+      if(fDist < 20 && seconds-relTime > 3) {
+        rubble.remove(i);
+        ship.gotHit(5);
+        break;
+      }
+    }
     ship.healthBar();
-    if(ship.getHealth() == 0) {
+    if(ship.getHealth() <= 0) {
+      ship.setHealth(0);
       for(int i = 0; i < asteroids.size(); i++) {asteroids.remove(i);}
     }
     bubble();
     asteroidCount();
     timer();
+    noDamage.show();
+    noMove.show();
+    noTurn.show();
+    speedrun.show();
 }
 
 public void timer() {
@@ -106,12 +127,13 @@ public void timer() {
   textSize(40);
   fill(255);
   text(seconds-relTime, width-20, 30);
+  if(seconds-relTime > 20) {fast = false;}
 }
 
 public void bubble() {
   stroke(0, 0, 255);
   fill(0, 200, 255, 90);
-  if(seconds-relTime < 3) {ellipse(ship.getX(), ship.getY(), 50, 50);}
+  if(seconds-relTime < 3) {ellipse((float) ship.getX(), (float) ship.getY(), 50, 50);}
 }
 
 public void reset() {
@@ -121,5 +143,9 @@ public void reset() {
   ship.myCenterY = Math.random()*height;
   ship.setHealth(100);
   ship.myPointDirection = Math.random()*360;
-  relTime = millis()/1000;  
+  relTime = millis()/1000;
+  dmgless = true;
+  moveless = true;
+  turnless = true;
+  fast = true;
 }
