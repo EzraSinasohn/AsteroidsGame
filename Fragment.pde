@@ -26,5 +26,3 @@ class Fragment extends Floater {
     super.show();
   }
 }
-
-
