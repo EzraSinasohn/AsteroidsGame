@@ -38,11 +38,11 @@ class Spaceship extends Floater
     }
     turn(rot);
     if(boost) {
-        if(myXspeed > 10*Math.cos(myPointDirection*(Math.PI/180))) {myXspeed = 10*Math.cos(myPointDirection*(Math.PI/180));}
-        if(myYspeed > 10*Math.sin(myPointDirection*(Math.PI/180))) {myYspeed = 10*Math.sin(myPointDirection*(Math.PI/180));}
+        if(Math.abs(myXspeed) > Math.abs(10*Math.cos(myPointDirection*(Math.PI/180)))) {myXspeed = 10*Math.cos(myPointDirection*(Math.PI/180));}
+        if(Math.abs(myYspeed) > Math.abs(10*Math.sin(myPointDirection*(Math.PI/180)))) {myYspeed = 10*Math.sin(myPointDirection*(Math.PI/180));}
     } else {
-        if(myXspeed > 5*Math.cos(myPointDirection*(Math.PI/180))) {myXspeed = 5*Math.cos(myPointDirection*(Math.PI/180));}
-        if(myYspeed > 5*Math.sin(myPointDirection*(Math.PI/180))) {myYspeed = 5*Math.sin(myPointDirection*(Math.PI/180));}
+        if(Math.abs(myXspeed) > Math.abs(5*Math.cos(myPointDirection*(Math.PI/180)))) {myXspeed = 5*Math.cos(myPointDirection*(Math.PI/180));}
+        if(Math.abs(myYspeed) > Math.abs(5*Math.sin(myPointDirection*(Math.PI/180)))) {myYspeed = 5*Math.sin(myPointDirection*(Math.PI/180));}
     }
     super.move();
   }
