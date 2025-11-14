@@ -38,11 +38,15 @@ class Spaceship extends Floater
     }
     turn(rot);
     if(boost) {
-      if(myXspeed > 10) {myXspeed = 10;} else if(myXspeed < -10) {myXspeed = -10;}
-      if(myYspeed > 10) {myYspeed = 10;} else if(myYspeed < -10) {myYspeed = -10;}
+      if(myXspeed*myXspeed+myYspeed*myYspeed > 200) {
+        myXspeed -= Math.cos(myPointDirection*(Math.PI/180));
+        myYspeed -= Math.sin(myPointDirection*(Math.PI/180));
+      }
     } else {
-      if(myXspeed > 5) {myXspeed = 5;} else if(myXspeed < -5) {myXspeed = -5;}
-      if(myYspeed > 5) {myYspeed = 5;} else if(myYspeed < -5) {myYspeed = -5;}
+      if(myXspeed*myXspeed+myYspeed*myYspeed > 50) {
+        myXspeed -= 0.5*Math.cos(myPointDirection*(Math.PI/180));
+        myYspeed -= 0.5*Math.sin(myPointDirection*(Math.PI/180));
+      }
     }
     super.move();
   }
