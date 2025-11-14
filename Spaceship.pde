@@ -121,7 +121,8 @@ public void thruster() {
     fill(255, 100, 0);
     translate((float) ship.myCenterX, (float) ship.myCenterY);
     rotate((float) (ship.myPointDirection*PI/180.0));
-    triangle(0, 5, 0, -5, -20, 0);
+    if(boost) {triangle(0, 5, 0, -5, -30, 0);}
+    else {triangle(0, 5, 0, -5, -20, 0);}
     popMatrix();
   } if(keys[1]) {
     pushMatrix();
@@ -151,13 +152,15 @@ public void thruster() {
     fill(255, 100, 0);
     translate((float) ship.myCenterX, (float) ship.myCenterY);
     rotate((float) (ship.myPointDirection*PI/180.0));
-    triangle(0, 10, 0, 5, 15, 10);
+    if(boost) {triangle(0, 10, 0, 5, 25, 10);}
+    else {triangle(0, 10, 0, 5, 15, 10);}
     stroke(255, 0, 0);
     fill(255, 0, 0);
     triangle(0, 10, 0, 5, -5, 0);
     stroke(255, 200, 0);
     fill(255, 100, 0);
-    triangle(0, -10, 0, -5, 15, -10);
+    if(boost) {triangle(0, -10, 0, -5, 25, -10);}
+    else {triangle(0, -10, 0, -5, 15, -10);}
     stroke(255, 0, 0);
     fill(255, 0, 0);
     triangle(0, -10, 0, -5, -5, 0);
