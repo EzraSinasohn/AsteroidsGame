@@ -18,8 +18,8 @@ class Spaceship extends Floater
   void move() {
     if(keys[5]) {boost = true;} else {boost = false;}
     if(keys[0]) {
-      if(boost) {accelerate(1);}
-      else {accelerate(0.5);}
+      if(boost) {if(myXspeed*myXspeed+myYspeed*myYspeed < 100) {accelerate(1);}}
+      else {if(myXspeed*myXspeed+myYspeed+myYspeed < 50) {accelerate(0.5);}}
     }
     if(keys[1]) {
       if(rot > -5) {rot -= 0.75;}
@@ -28,8 +28,8 @@ class Spaceship extends Floater
       if(rot < 5) {rot += 0.75;}
     }
     if(keys[3]) {
-      if(boost) {accelerate(-0.5);}
-      else {accelerate(-0.25);}
+      if(boost) {if(myXspeed*myXspeed+myYspeed*myYspeed < 100) {accelerate(-0.5);}}
+      else {if(myXspeed*myXspeed+myYspeed*myYspeed < 50) {accelerate(-0.25);}}
     }
     if(!(keys[1] || keys[2])) {rot *= 0.95;}
     if(!keys[0]) {
@@ -37,13 +37,13 @@ class Spaceship extends Floater
       myYspeed *= 0.98;
     }
     turn(rot);
-    if(boost) {
+    /*if(boost) {
         if(Math.abs(myXspeed) > Math.abs(1*Math.cos(myPointDirection*(Math.PI/180)))) {myXspeed = 1*Math.cos(myPointDirection*(Math.PI/180));}
         if(Math.abs(myYspeed) > Math.abs(1*Math.sin(myPointDirection*(Math.PI/180)))) {myYspeed = 1*Math.sin(myPointDirection*(Math.PI/180));}
     } else {
         if(Math.abs(myXspeed) > Math.abs(1*Math.cos(myPointDirection*(Math.PI/180)))) {myXspeed = 1*Math.cos(myPointDirection*(Math.PI/180));}
         if(Math.abs(myYspeed) > Math.abs(1*Math.sin(myPointDirection*(Math.PI/180)))) {myYspeed = 1*Math.sin(myPointDirection*(Math.PI/180));}
-    }
+    }*/
     super.move();
   }
   
