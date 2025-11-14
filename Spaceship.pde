@@ -1,4 +1,4 @@
-boolean keys[] = new boolean[5];
+boolean keys[] = new boolean[6];
 double rot;
 class Spaceship extends Floater  
 {
@@ -16,22 +16,34 @@ class Spaceship extends Floater
   }
   
   void move() {
-    if(keys[0]) {accelerate(1);}
+    if(keys[5]) {boost = true;} else {boost = false;}
+    if(keys[0]) {
+      if(boost) {accelerate(1);}
+      else {accelerate(0.5);}
+    }
     if(keys[1]) {
-        if(rot > -5) {rot -= 0.75;}
-      }
+      if(rot > -5) {rot -= 0.75;}
+    }
     if(keys[2]) {
-        if(rot < 5) {rot += 0.75;}
-      }
-    if(keys[3]) {accelerate(-0.5);}
+      if(rot < 5) {rot += 0.75;}
+    }
+    if(keys[3]) {
+      if(boost) {accelerate(-0.5);}
+      else {accelerate(-0.25);}
+    }
     if(!(keys[1] || keys[2])) {rot *= 0.95;}
     if(!keys[0]) {
       myXspeed *= 0.98;
       myYspeed *= 0.98;
     }
     turn(rot);
-    if(myXspeed > 10) {myXspeed = 10;} else if(myXspeed < -10) {myXspeed = -10;}
-    if(myYspeed > 10) {myYspeed = 10;} else if(myYspeed < -10) {myYspeed = -10;}
+    if(boost) {
+      if(myXspeed > 10) {myXspeed = 10;} else if(myXspeed < -10) {myXspeed = -10;}
+      if(myYspeed > 10) {myYspeed = 10;} else if(myYspeed < -10) {myYspeed = -10;}
+    } else {
+      if(myXspeed > 5) {myXspeed = 5;} else if(myXspeed < -5) {myXspeed = -5;}
+      if(myYspeed > 5) {myYspeed = 5;} else if(myYspeed < -5) {myYspeed = -5;}
+    }
     super.move();
   }
   
@@ -78,6 +90,8 @@ public void keyPressed() {
       turnless = false;
     } if(key == ' ') {
       keys[4] = true;
+    } if(keyCode == SHIFT) {
+      keys[5] = true;
     }
   }
 }
@@ -95,6 +109,8 @@ public void keyReleased() {
     keys[4] = false;
   } if(key == 'r' || key == 'h') {
     reset();
+  } if(keyCode == SHIFT) {
+    keys[5] = false;
   }
 }
 
