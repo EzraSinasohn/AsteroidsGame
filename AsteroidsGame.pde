@@ -8,7 +8,7 @@ Badge noDamage = new Badge(50, "INVINCIBLE", 255, 0, 0);
 Badge noMove = new Badge(130, "LAZY", 0, 100, 255);
 Badge noTurn = new Badge(210, "FOCUSED", 100, 255, 0);
 Badge speedrun = new Badge(290, "SPEEDRUNNER", 255, 200, 0);
-boolean dmgless = true, moveless = true, turnless = true, fast = true;
+boolean dmgless = true, moveless = true, turnless = true, fast = true, boost = false;
 public void setup() 
 {
   //fullScreen(P3D);
